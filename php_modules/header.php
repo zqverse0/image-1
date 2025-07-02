@@ -66,13 +66,13 @@
         <?php else: ?>
         <div class="header-menu-wrap">
           <div class="header-avatar">
-            <?php $this->author->gravatar(80);?>
+            <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=80" width="80" height="80" alt="avatar">
           </div>
           <div class="header-menu-body">
             <div class="header-menu-head">
               <div class="header-menu-avatar">
                 <a href="http://cn.gravatar.org/" target="_blank" title="修改头像">
-                  <?php $this->author->gravatar(100);?>
+                  <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=100" width="100" height="100" alt="avatar">
                 </a>
               </div>
               <div class="header-menu-username"><?php $this->author();?></div>

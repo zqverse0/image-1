@@ -2,7 +2,7 @@
   <div class="article-author-content" itemscope itemtype="http://schema.org/Person">
     <a class="article-author-head" href="<?php $this->author->permalink();?>" target="_self" rel="author">
       <div class="article-author-avatar">
-        <?php $this->author->gravatar(80);?>
+        <img src="https://cravatar.cn/avatar/<?php echo md5($this->author->mail); ?>?s=80" width="80" height="80" alt="avatar">
       </div>
       <div class="article-author-info">
         <div class="article-author-name" itemprop="name"><?php $this->author();?></div>

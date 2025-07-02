@@ -17,7 +17,7 @@
     <div id="<?php $comments->theId();?>" class="comment-list-media-wrapper">
       <div class="comment-list-media">
         <div class="comment-list-media-avatar">
-          <?php $comments->gravatar('40', '');?>
+          <img src="https://cravatar.cn/avatar/<?php echo md5($comments->mail); ?>?s=40" width="40" height="40" alt="avatar">
         </div>
         <div class="comment-list-media-content">
           <div class="comment-list-media-head">
