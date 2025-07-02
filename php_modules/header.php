@@ -51,19 +51,13 @@
           </form>
           <?php if ($this->user->hasLogin()): ?>
           <a class="header-article-btn" href="<?php echo getAdminUrl('write-post'); ?>" target="_self" title="写文章">写文章</a>
-          <?php else: ?>
-          <a class="header-article-btn login" href="javascript:;" target="_self" title="写文章">写文章</a>
-          <?php endif;?>
+          <?php endif; ?>
         </div>
         <?php if ($this->user->hasLogin()): ?>
         <?php $commentsLink = getHidePage($pages, 'notification');?>
         <a class="header-comment" href="<?php echo $commentsLink['href']; ?>" target="_self" title="评论列表">
           <i class="jj-icon jj-icon-tongzhixiaoxi header-comment-icon"></i>
         </a>
-        <?php endif;?>
-        <?php if (!$this->user->hasLogin()): ?>
-          <button class="header-login-btn">登录</button>
-        <?php else: ?>
         <div class="header-menu-wrap">
           <div class="header-avatar">
             <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=80" width="80" height="80" alt="avatar">
@@ -133,6 +127,7 @@
           </div>
         </div>
         <?php endif;?>
+
       </div>
     </div>
   </div>
@@ -160,7 +155,7 @@
       <div class="login-dialog-body">
         <div class="login-dialog-body-left">
           <div class="login-dialog-body-left-title">账号密码登录</div>
-          <form class="login-dialog-form" action="<?php $this->options->loginAction()?>" method="post" name="login" rold="form">
+          <form class="login-dialog-form" method="post" action="<?php $this->options->loginAction()?>" name="login" id="login-form" style="display:block;">
             <input type="hidden" name="referer" value="<?php echo $this->request->getRequestUrl(); ?>" required>
             <div class="login-dialog-input-group username">
               <input type="text" name="name" placeholder="请输入账号" required pattern="\S+.*">

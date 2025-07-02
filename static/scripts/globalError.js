@@ -26,3 +26,42 @@ window.addEventListener(
 	},
 	true
 );
+
+// 恢复为无注册弹窗、验证码、注册表单相关 JS
+
+(function() {
+	var loginForm = document.getElementById('login-form');
+	var registerForm = document.getElementById('register-form');
+	var registerBtn = document.querySelector('.login-dialog-register-btn');
+	var backBtn = document.querySelector('.login-dialog-back-btn');
+	var captchaImg = document.getElementById('register-captcha-img');
+	if (registerBtn && loginForm && registerForm) {
+		registerBtn.addEventListener('click', function() {
+			loginForm.style.display = 'none';
+			registerForm.style.display = 'block';
+		});
+	}
+	if (backBtn && loginForm && registerForm) {
+		backBtn.addEventListener('click', function() {
+			registerForm.style.display = 'none';
+			loginForm.style.display = 'block';
+		});
+	}
+	if (captchaImg) {
+		captchaImg.addEventListener('click', function() {
+			this.src = '/usr/themes/Typecho_Theme_JJ/register_captcha.php?' + Math.random();
+		});
+	}
+	if (registerForm) {
+		registerForm.addEventListener('submit', function(e) {
+			var pwd = registerForm.querySelector('input[name="password"]').value;
+			var pwd2 = registerForm.querySelector('input[name="password2"]').value;
+			if (pwd !== pwd2) {
+				alert('两次输入的密码不一致');
+				e.preventDefault();
+				return false;
+			}
+			// 可选：前端邮箱、用户名等格式校验
+		});
+	}
+})();
