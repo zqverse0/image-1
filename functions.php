@@ -186,7 +186,7 @@ function themeConfig($form)
     $defaultMarkdownTheme = new \Typecho\Widget\Helper\Form\Element\Select(
         'defaultMarkdownTheme',
         $markdownThemeMap,
-        'juejin', _t('默认文章和独立页主题'), _t('默认使用掘金主题，非默认选项时优先级大于文章和独立页的默认值')
+        'juejin', _t('默认文章和独立页主题'), _t('默认使用知趣主题，非默认选项时优先级大于文章和独立页的默认值')
     );
     $form->addInput($defaultMarkdownTheme);
 
@@ -682,7 +682,7 @@ if ($_SERVER['SCRIPT_NAME'] == __TYPECHO_ADMIN_DIR__ . 'write-post.php' || $_SER
             $layout->addItem($titleImg);
         }
         // 文章主题
-        $markdownTheme = new Typecho_Widget_Helper_Form_Element_Select('markdownTheme', $markdownThemeMap, 'juejin', _t('文章主题'), _t('默认使用掘金主题'));
+        $markdownTheme = new Typecho_Widget_Helper_Form_Element_Select('markdownTheme', $markdownThemeMap, 'juejin', _t('文章主题'), _t('默认使用知趣主题'));
         $layout->addItem($markdownTheme);
         // 代码高亮
         $highlightTheme = new Typecho_Widget_Helper_Form_Element_Select('highlightTheme', $markdownHighlightMap, null, _t('文章代码块主题'), _t('文章主题自带配套的代码高亮，如果你有定制需求，可以自行选择代码高亮主题，否则默认选择无即可。'));

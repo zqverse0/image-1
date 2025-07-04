@@ -1,13 +1,13 @@
 <?php
 /**
- * 掘金高仿版
+ * 知趣主题
  * ---------------------
  * 本主题仅供学习交流使用，严禁用于商业用途，请于24小时内删除
  *
- * @package JJ
- * @author 木灵鱼儿
- * @version 2.3.8
- * @link https://www.mulingyuer.com
+ * @package ZQverse
+ * @author 智圈空间
+ * @version 1.0.4
+ * @link https://www.02zq.com
  */
 ?>
 <?php if ( ! defined('__TYPECHO_ROOT_DIR__')) {
