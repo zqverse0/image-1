@@ -1,0 +1,81 @@
+/* Logo擦镜子效果 */
+.header-logo {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* 擦镜子光泽条 */
+.header-logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 悬停时触发擦镜子动画 */
+.header-logo:hover::before {
+  left: 100%;
+  animation: wipeEffect 1.2s ease-in-out;
+}
+
+/* 擦镜子动画关键帧 */
+@keyframes wipeEffect {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* 为logo图片添加滤镜效果，增强擦镜子效果 */
+.header-logo-pc,
+.header-logo-mobile {
+  transition: filter 0.3s ease;
+}
+
+.header-logo:hover .header-logo-pc,
+.header-logo:hover .header-logo-mobile {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+/* 移动端优化 */
+@media screen and (max-width: 640px) {
+  .header-logo:hover {
+    transform: scale(1.02);
+  }
+  
+  .header-logo::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+  }
+} 

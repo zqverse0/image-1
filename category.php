@@ -34,7 +34,8 @@
         </div>
         <div class="main-right">
           <?php $this->need('./php_modules/home/recent_comments.php');?>
-          <?php $this->need('./php_modules/home/theme_tool.php');?>
+          <?php // 已移除FAQ主题使用指南和RSS订阅区域 ?>
+          <?php // $this->need('./php_modules/home/theme_tool.php');?>
           <?php // 原footer位置已注释，移动到页面底部 ?>
           <?php // $this->need('./php_modules/footer.php');?>
         </div>
