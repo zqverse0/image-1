@@ -53,6 +53,9 @@ content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale
 <!-- globalError -->
 <script src="<?php $this->options->themeUrl('/static/scripts/globalError.js');?>"></script>
 
+<!-- 自定义页脚样式 -->
+<link href="<?php $this->options->themeUrl('/static/css/footer-custom.css');?>" rel="stylesheet" type="text/css">
+
 <!-- DocSearch  -->
 <?php if ($this->options->isOpenDocSearch === 'on'): ?>
   <link rel="preconnect" href="https://YOUR_APP_ID-dsn.algolia.net" crossorigin />

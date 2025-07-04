@@ -32,6 +32,7 @@ if ( ! defined('__TYPECHO_ROOT_DIR__')) {
       </div>
     </div>
   </main>
+  <?php $this->need('./php_modules/page_footer.php');?>
   <?php $this->need('./php_modules/fixed_tool.php');?>
   <?php //body标签底部插入代码 ?>
   <?php $this->options->bodyInsertCode();?>

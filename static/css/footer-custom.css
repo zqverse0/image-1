@@ -1,0 +1,77 @@
+/* 自定义页脚样式 */
+.footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+.footer-content {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #6c757d;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.footer-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-item a:hover {
+  color: #007bff;
+}
+
+.footer-item a:active {
+  opacity: 0.7;
+}
+
+/* 分隔符 */
+.footer-item:not(:last-child)::after {
+  content: "|";
+  margin-left: 20px;
+  color: #dee2e6;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .footer-item:not(:last-child)::after {
+    display: none;
+  }
+  
+  .footer-item {
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    padding: 15px 0;
+    margin-top: 20px;
+  }
+  
+  .footer-content {
+    padding: 0 15px;
+    font-size: 11px;
+  }
+} 

@@ -39,6 +39,7 @@
       </div>
     </div>
   </main>
+  <?php $this->need('./php_modules/page_footer.php');?>
   <?php $this->need('./php_modules/fixed_tool.php');?>
   <?php $this->need('./php_modules/mobile_directory_tree.php');?>
   <?php //body标签底部插入代码 ?>

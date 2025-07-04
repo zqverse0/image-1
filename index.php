@@ -48,11 +48,13 @@
           <?php $this->need('./php_modules/home/recent_comments.php');?>
           <?php $this->need('./php_modules/home/recommended_article.php');?>
           <?php $this->need('./php_modules/home/theme_tool.php');?>
-          <?php $this->need('./php_modules/footer.php');?>
+          <?php // 原footer位置已注释，移动到页面底部 ?>
+          <?php // $this->need('./php_modules/footer.php');?>
         </div>
       </div>
     </div>
   </main>
+  <?php $this->need('./php_modules/page_footer.php');?>
   <?php $this->need('./php_modules/fixed_tool.php');?>
   <?php //body标签底部插入代码 ?>
   <?php $this->options->bodyInsertCode();?>
