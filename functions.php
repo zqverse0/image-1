@@ -116,16 +116,6 @@ function themeConfig($form)
     );
     $form->addInput($bodyInsertCode);
 
-    // 备案信息
-    $filing = new \Typecho\Widget\Helper\Form\Element\Textarea(
-        'filing',
-        null,
-        null,
-        _t('备案信息'),
-        _t('例子：&lt;div class=&quot;footer-item&quot;&gt;&lt;a href=&quot;备案跳转的链接&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;备案号&lt;/a&gt;&lt;/div&gt;')
-    );
-    $form->addInput($filing);
-
     // 文章置顶
     $stickyCidList = new \Typecho\Widget\Helper\Form\Element\Text(
         'stickyCidList',
@@ -269,6 +259,188 @@ function themeConfig($form)
         _t('默认为空')
     );
     $form->addInput($docSearchIndexName);
+
+    // ========== 页脚设置 ==========
+    // 页脚设置 - 自定义页脚显示内容
+
+    // 关于页面链接
+    $aboutLinkText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'aboutLinkText',
+        null,
+        '关于',
+        _t('关于页面链接文字'),
+        _t('显示在页脚的关于页面链接文字')
+    );
+    $form->addInput($aboutLinkText);
+    
+    $showAboutLink = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showAboutLink',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示关于页面链接')
+    );
+    $form->addInput($showAboutLink);
+
+    // 友情链接页面
+    $linksLinkText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'linksLinkText',
+        null,
+        '友情链接',
+        _t('友情链接页面文字'),
+        _t('显示在页脚的友情链接页面文字')
+    );
+    $form->addInput($linksLinkText);
+    
+    $showLinksLink = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showLinksLink',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示友情链接页面')
+    );
+    $form->addInput($showLinksLink);
+
+    // 站点地图
+    $sitemapText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'sitemapText',
+        null,
+        '站点地图',
+        _t('站点地图链接文字'),
+        _t('显示在页脚的站点地图链接文字')
+    );
+    $form->addInput($sitemapText);
+    
+    $showSitemap = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showSitemap',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示站点地图链接')
+    );
+    $form->addInput($showSitemap);
+
+    // 版权信息
+    $copyrightText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'copyrightText',
+        null,
+        '版权所有：',
+        _t('版权信息前缀文字'),
+        _t('版权信息前面的文字，如"版权所有："')
+    );
+    $form->addInput($copyrightText);
+    
+    $showCopyright = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showCopyright',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示版权信息')
+    );
+    $form->addInput($showCopyright);
+
+    // 联系地址
+    $addressText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'addressText',
+        null,
+        '联系地址：',
+        _t('联系地址前缀文字'),
+        _t('联系地址前面的文字，如"联系地址："')
+    );
+    $form->addInput($addressText);
+    
+    $showAddress = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showAddress',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示联系地址')
+    );
+    $form->addInput($showAddress);
+
+    // 联系邮箱
+    $email = new \Typecho\Widget\Helper\Form\Element\Text(
+        'email',
+        null,
+        'admin@example.com',
+        _t('联系邮箱地址'),
+        _t('显示在页脚的联系邮箱地址')
+    );
+    $form->addInput($email);
+    
+    $emailText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'emailText',
+        null,
+        '联系邮箱：',
+        _t('联系邮箱前缀文字'),
+        _t('联系邮箱前面的文字，如"联系邮箱："')
+    );
+    $form->addInput($emailText);
+    
+    $showEmail = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showEmail',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示联系邮箱')
+    );
+    $form->addInput($showEmail);
+
+    // 备案信息
+    $filingText = new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'filingText',
+        null,
+        '',
+        _t('备案信息内容'),
+        _t('填写备案信息，支持HTML标签。例如：&lt;a href=&quot;备案跳转的链接&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;备案号&lt;/a&gt;')
+    );
+    $form->addInput($filingText);
+    
+    $showFiling = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showFiling',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示备案信息')
+    );
+    $form->addInput($showFiling);
+
+    // Powered by Typecho
+    $poweredByText = new \Typecho\Widget\Helper\Form\Element\Text(
+        'poweredByText',
+        null,
+        'Blog By Typecho',
+        _t('Powered by Typecho文字'),
+        _t('显示在页脚的Powered by Typecho文字')
+    );
+    $form->addInput($poweredByText);
+    
+    $showPoweredBy = new \Typecho\Widget\Helper\Form\Element\Radio(
+        'showPoweredBy',
+        array(
+            'on' => _t('显示'),
+            'off' => _t('隐藏'),
+        ),
+        'on', _t('是否显示 Powered by Typecho')
+    );
+    $form->addInput($showPoweredBy);
+
+    // 自定义页脚内容
+    $customFooterContent = new \Typecho\Widget\Helper\Form\Element\Textarea(
+        'customFooterContent',
+        null,
+        '',
+        _t('自定义页脚内容'),
+        _t('可以添加额外的页脚内容，支持HTML标签。例如：&lt;div class=&quot;footer-item&quot;&gt;&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot;&gt;友情链接&lt;/a&gt;&lt;/div&gt;')
+    );
+    $form->addInput($customFooterContent);
 }
 
 /**
