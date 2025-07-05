@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .footer-item a {
@@ -50,9 +51,12 @@
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
   .footer-content {
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 15px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
   }
   
   .footer-item:not(:last-child)::after {
@@ -60,18 +64,42 @@
   }
   
   .footer-item {
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  /* 移动端优化：减少一些不必要的间距 */
+  .footer-item a {
+    padding: 2px 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .footer {
-    padding: 15px 0;
+    padding: 12px 0;
     margin-top: 20px;
   }
   
   .footer-content {
-    padding: 0 15px;
-    font-size: 11px;
+    padding: 0 10px;
+    font-size: 10px;
+    gap: 6px 12px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-item {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .footer-content {
+    gap: 4px 8px;
+    font-size: 9px;
+  }
+  
+  .footer-item {
+    font-size: 9px;
   }
 } 
