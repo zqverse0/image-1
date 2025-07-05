@@ -1,10 +1,16 @@
 <footer class="footer">
   <div class="footer-content">
+    <?php 
+    $footer_custom = $this->options->footer_custom;
+    if (!empty($footer_custom)) {
+        // 安全输出自定义页脚内容
+        echo htmlspecialchars_decode($footer_custom);
+    } else {
+        // 默认页脚内容
+        $aboutLink = getHidePage($this, 'about');
+        $linksLink = getHidePage($this, 'links');
+    ?>
     <div class="footer-item">
-      <?php
-$aboutLink = getHidePage($this, 'about');
-$linksLink = getHidePage($this, 'links');
-?>
       <?php if (!empty($aboutLink["href"])): ?>
         <a href="<?php echo $aboutLink["href"]; ?>" target="_self" title="<?php echo $aboutLink["title"]; ?>"><?php echo $aboutLink["title"]; ?></a>
       <?php endif;?>
@@ -29,5 +35,6 @@ $linksLink = getHidePage($this, 'links');
     <div class="footer-item">
       Blog By <a href="http://typecho.org" target="_blank" title="Typecho">Typecho</a>
     </div>
+    <?php } ?>
   </div>
 </footer>

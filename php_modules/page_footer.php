@@ -1,108 +1,40 @@
-<?php
-/**
- * 页脚模板
- */
-$options = Helper::options();
-?>
-
 <footer class="footer">
-    <div class="footer-content">
-        <?php if ($options->showAboutLink === 'on'): ?>
-            <div class="footer-item">
-                <a href="<?php $options->siteUrl(); ?>about" target="_blank"><?php echo $options->aboutLinkText ?: '关于'; ?></a>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showLinksLink === 'on'): ?>
-            <div class="footer-item">
-                <a href="<?php $options->siteUrl(); ?>links" target="_blank"><?php echo $options->linksLinkText ?: '友情链接'; ?></a>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showSitemap === 'on'): ?>
-            <div class="footer-item">
-                <a href="<?php $options->siteUrl(); ?>sitemap.xml" target="_blank"><?php echo $options->sitemapText ?: '站点地图'; ?></a>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showCopyright === 'on'): ?>
-            <div class="footer-item">
-                <?php echo $options->copyrightText ?: '版权所有：'; ?><?php echo date('Y'); ?> <?php $options->title(); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showAddress === 'on'): ?>
-            <div class="footer-item">
-                <?php echo $options->addressText ?: '联系地址：'; ?><?php $options->address(); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showEmail === 'on'): ?>
-            <div class="footer-item">
-                <?php echo $options->emailText ?: '联系邮箱：'; ?><a href="mailto:<?php $options->email ?: 'admin@example.com'; ?>"><?php echo $options->email ?: 'admin@example.com'; ?></a>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showFiling === 'on' && $options->filingText): ?>
-            <div class="footer-item">
-                <?php echo $options->filingText; ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->showPoweredBy === 'on'): ?>
-            <div class="footer-item">
-                <?php echo $options->poweredByText ?: 'Blog By Typecho'; ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if ($options->customFooterContent): ?>
-            <?php echo $options->customFooterContent; ?>
-        <?php endif; ?>
+  <div class="footer-content">
+    <?php 
+    $footer_custom = $this->options->footer_custom;
+    if (!empty($footer_custom)) {
+        // 安全输出自定义页脚内容
+        echo htmlspecialchars_decode($footer_custom);
+    } else {
+        // 默认页脚内容
+        $aboutLink = getHidePage($this, 'about');
+        $linksLink = getHidePage($this, 'links');
+    ?>
+    <div class="footer-item">
+      <?php if (!empty($aboutLink["href"])): ?>
+        <a href="<?php echo $aboutLink["href"]; ?>" target="_self" title="<?php echo $aboutLink["title"]; ?>"><?php echo $aboutLink["title"]; ?></a>
+      <?php endif;?>
+      <?php if (!empty($linksLink["href"])): ?>
+        <a href="<?php echo $linksLink["href"]; ?>" target="_self" title="<?php echo $linksLink["title"]; ?>"><?php echo $linksLink["title"]; ?></a>
+      <?php endif;?>
+      <a href="<?php $this->options->siteUrl();?>sitemap.xml" target="_blank" title="站点地图">站点地图</a>
     </div>
-</footer>
-
-<style>
-.footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 1px solid #e9ecef;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-size: 14px;
-    color: #6c757d;
-}
-
-.footer-item {
-    display: flex;
-    align-items: center;
-}
-
-.footer-item a {
-    color: #6c757d;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-item a:hover {
-    color: #007bff;
-    text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-}
-</style> 
+    <div class="footer-item">
+      版权所有：<?php $this->options->title();?>
+    </div>
+    <div class="footer-item">
+      联系地址：<?php $this->options->address();?>
+    </div>
+    <div class="footer-item">
+      <span>联系邮箱：</span><a href="mailto:<?php $this->author->mail();?>" target="_self"><?php $this->author->mail();?></a>
+    </div>
+    <div class="footer-item">
+      <a href="<?php $this->options->siteUrl();?>" target="_self" title="<?php $this->options->title();?>">&copy;<?php echo date('Y'); ?> <?php $this->options->title();?></a>
+    </div>
+    <?php $this->options->filing();?>
+    <div class="footer-item">
+      Blog By <a href="http://typecho.org" target="_blank" title="Typecho">Typecho</a>
+    </div>
+    <?php } ?>
+  </div>
+</footer> 
