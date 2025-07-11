@@ -11,13 +11,13 @@
             <?php else: ?>
               <div class="nav-list-item nav-list-item-parent<?php if (!$this->is('index') && isParentActive($this->category, $category, $children)) {echo ' active';}?>">
                 <a class="nav-list-item-parent-name" href="<?php $category->permalink();?>" target="_self" title="<?php $category->name();?>"><?php $category->name();?></a>
-                <div class="nav-list-secondary">
+                <!-- <div class="nav-list-secondary">
                   <?php foreach ($children as $mid) {?>
                   <?php $child = $category->getCategory($mid);?>
                   <a class="nav-list-secondary-item<?php if ($this->is('category', $child['slug'])) {echo ' active';}
     ;?>" href="<?php echo $child['permalink'] ?>" target="_self" title="<?php echo $child['name']; ?>"><?php echo $child['name']; ?></a>
                   <?php }?>
-                </div>
+                </div> -->
               </div>
             <?php endif;?>
           <?php endif;?>

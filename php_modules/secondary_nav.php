@@ -8,7 +8,7 @@
             <div class="secondary-nav-fold">
               <div class="secondary-nav-left">
                 <a class="secondary-nav-item<?php if (secondaryAllActive($this, $category, $children)) {echo ' active';}
-;?>" href="javascript:;" target="_self" title="全部">全部</a>
+;?>" href="http://localhost2/index.php/category/xx/" target="_self" title="全部">全部</a>
                 <?php foreach ($children as $mid) {?>
                 <?php $child = $category->getCategory($mid);?>
                 <a class="secondary-nav-item<?php if ($this->is('category', $child['slug'])) {echo ' active';}

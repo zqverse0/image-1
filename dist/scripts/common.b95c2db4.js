@@ -3608,7 +3608,7 @@
             (0, s.A)(this, "popoverDomData", new Map()),
             (this.nav = document.querySelector(".nav")),
             this.nav)
-          ) {
+          ) {return;
             ((this.itemParent = Array.from(
               this.nav.querySelectorAll(".nav-list-item-parent"),
             )),
