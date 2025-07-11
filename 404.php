@@ -4,7 +4,6 @@
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <?php $this->need('./php_modules/notes.php');?>
 <head>
   <?php $this->need('./php_modules/default_head.php');?>
   <?php if ($this->options->errorType === 'chrome'): ?>
