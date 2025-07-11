@@ -14,7 +14,7 @@
           <?php while ($comments->next()): ?>
           <a class="recent-comments-list-item" href="<?php $comments->permalink();?>" target="_self" title="<?php $comments->author(false);?>">
             <div class="recent-comments-list-item-avatar">
-              <img src="https://cravatar.cn/avatar/<?php echo md5($comments->mail); ?>?s=40" width="40" height="40" alt="avatar">
+              <img src="<?php echo getStableAvatar($comments->mail); ?>" width="40" height="40" alt="avatar">
             </div>
             <div class="recent-comments-list-item-content">
               <div class="recent-comments-list-item-title"><?php $comments->author(false);?></div>

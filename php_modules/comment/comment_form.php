@@ -4,10 +4,12 @@
     <div class="comment-form-body">
       <div class="comment-form-avatar">
         <?php if ($this->user->hasLogin()): ?>
-          <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=80" width="80" height="80" alt="avatar">
+          <img src="<?php echo getStableAvatar($this->user->mail); ?>" width="80" height="80" alt="avatar">
+          <!-- 使用本地头像 getStableAvatar() -->
         <?php else: ?>
           <?php $email = $this->remember('mail', true);if (!empty($email)): ?>
-            <img src="https://cravatar.cn/avatar/<?php echo md5($email); ?>?s=80" width="80" height="80" alt="avatar">
+            <img src="<?php echo getStableAvatar($email); ?>" width="80" height="80" alt="avatar">
+            <!-- 使用本地头像 getStableAvatar() -->
           <?php else: ?>
             <img src="<?php $this->options->themeUrl('/static/images/comment/default_avatar.svg');?>" width="80" height="80" alt="avatar">
           <?php endif;?>

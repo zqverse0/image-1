@@ -1626,3 +1626,13 @@ function themeInit($archive)
         pushStickyArticles($archive);
     }
 }
+
+/**
+ * 根据邮箱稳定分配本地头像（共84张，编号0~83）
+ * @param string $email 用户邮箱
+ * @return string 本地头像URL
+ */
+function getStableAvatar($email) {
+    $index = abs(crc32(strtolower(trim($email)))) % 84;
+    return Helper::options()->themeUrl . '/static/images/user/img/' . $index . '.jpg';
+}

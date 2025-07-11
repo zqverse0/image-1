@@ -60,13 +60,15 @@
         </a>
         <div class="header-menu-wrap">
           <div class="header-avatar">
-            <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=80" width="80" height="80" alt="avatar">
+            <img src="<?php echo getStableAvatar($this->user->mail); ?>" width="80" height="80" alt="avatar">
+            <!-- 使用本地头像 getStableAvatar() -->
           </div>
           <div class="header-menu-body">
             <div class="header-menu-head">
               <div class="header-menu-avatar">
                 <a href="http://cn.gravatar.org/" target="_blank" title="修改头像">
-                  <img src="https://cravatar.cn/avatar/<?php echo md5($this->user->mail); ?>?s=100" width="100" height="100" alt="avatar">
+                  <img src="<?php echo getStableAvatar($this->user->mail); ?>" width="100" height="100" alt="avatar">
+                  <!-- 使用本地头像 getStableAvatar() -->
                 </a>
               </div>
               <div class="header-menu-username"><?php $this->author();?></div>

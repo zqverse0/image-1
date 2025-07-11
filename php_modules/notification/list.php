@@ -7,7 +7,8 @@
         <?php $other = getIdPosts($comments->cid);?>
         <div class="notification-list-item">
           <div class="notification-list-item-avatar">
-            <img src="https://cravatar.cn/avatar/<?php echo md5($comments->mail); ?>?s=40" width="40" height="40" alt="avatar">
+            <img src="<?php echo getStableAvatar($comments->mail); ?>" width="40" height="40" alt="avatar">
+            <!-- 使用本地头像 getStableAvatar() -->
           </div>
           <div class="notification-list-item-content">
             <div class="notification-list-item-title"><strong><?php $comments->author();?></strong> 回复了你的 <a class="notification-list-item-link" href="<?php echo $other['permalink']; ?>" target="_blank" title="<?php echo $other['permalink']; ?>"><?php echo $other['title']; ?></a></div>
